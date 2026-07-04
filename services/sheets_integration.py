@@ -142,7 +142,7 @@ def _montar_linha_nova(dados: dict, cfg: dict, id_ocorrencia: str) -> list:
         data_inicio_raw = inicio_raw
         hora_inicio_raw = fb("hora_inicio")
 
-    pl_map = {"norm": "NORMALIZADO", "atend": "EM ATENDIMENTO", "aguard": "AGUARDANDO"}
+    pl_map = {"norm": "NORMALIZADO", "atend": "EM ATENDIMENTO", "aguard": "AGUARDANDO", "sn": "SEM NECESSIDADE"}
     status_atual_raw = fb("status_atual")
     status_atual = pl_map.get(status_atual_raw, status_atual_raw.upper() if status_atual_raw else "")
 
@@ -397,7 +397,7 @@ def update_ocorrencia_normalizada(
     data_fim    = str(dados_fim.get("data_fim",    "")).strip()
     hora_fim    = str(dados_fim.get("hora_fim",    "")).strip()
 
-    pl_map = {"norm": "NORMALIZADO", "atend": "EM ATENDIMENTO", "aguard": "AGUARDANDO"}
+    pl_map = {"norm": "NORMALIZADO", "atend": "EM ATENDIMENTO", "aguard": "AGUARDANDO", "sn": "SEM NECESSIDADE"}
     pl_raw = str(dados_fim.get("pl", "")).strip()
     status_atual = pl_map.get(pl_raw, pl_raw.upper() if pl_raw else "NORMALIZADO")
 
